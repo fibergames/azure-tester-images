@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Frontend</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+        }
+        h1 {
+            color: #333;
+        }
+        p {
+            font-size: 1.2em;
+        }
+    </style>
+</head>
+<body>
+    <h1>Simple Frontend</h1>
+    <p id="message">Loading...</p>
+
+    <script>
+        async function fetchMessage() {
+            try {
+                // Replace with your backend URL
+                const backendUrl = "https://adhoc-test-be.azure.cloud.bmw/api/message";
+                const response = await fetch(backendUrl);
+                const data = await response.json();
+                document.getElementById('message').textContent = data.message;
+            } catch (error) {
+                document.getElementById('message').textContent = "Failed to fetch data from backend.";
+                console.error("Error fetching data from backend:", error);
+            }
+        }
+
+        // Fetch data when the page loads
+        fetchMessage();
+    </script>
+</body>
+</html>
