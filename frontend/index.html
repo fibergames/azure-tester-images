@@ -26,7 +26,7 @@
         async function fetchMessage() {
             try {
                 // Replace with your backend URL
-                const backendUrl = "https://adhoc-test-be.azure.cloud.bmw/api/message";
+                const backendUrl = "https://warmachine-backend.sliplane.app/api/message";
                 const response = await fetch(backendUrl);
                 const data = await response.json();
                 document.getElementById('message').textContent = data.message;
